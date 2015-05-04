@@ -1,10 +1,11 @@
 app.controller('ordersController',function($routeParams){
-	alert('orders controller init');
+	//alert('orders controller init');
     var customerId = $routeParams.customerId;
-	this.orders = null;
-    alert('customerID'+customerId);
-   
-	this.Customers =[{id:1,name:'Jason',age:'35',OrderedPlaced:'12/01/2012',
+	
+   // alert('customerID'+customerId);
+    var vm = this; 
+   vm.orders = null;
+	vm.Customers =[{id:1,name:'Jason',age:'35',OrderedPlaced:'12/01/2012',
                    orders:[
                        {
                            id:1,
@@ -37,19 +38,19 @@ app.controller('ordersController',function($routeParams){
                   
                  ];
 	    function init(){
-        alert('init fn'+this.Customers.length);
-        var len = this.Customers.length;
-        
+        //alert('init fn: '+vm.Customers.length);
+        var len = vm.Customers.length;
+        //alert(vm.Customers[0].id);
         for(var i=0;i<len;i++)
         {
-            if(this.Customers[i].id === parseInt(customerId))
+            if(vm.Customers[i].id === parseInt(customerId))
             {
-                this.orders = this.Customers[i].orders;
-                alert('inside eq');
+                vm.orders = vm.Customers[i].orders;
+                //alert('inside eq');
                 break;
             }
         }
-        alert(this.orders);
+      
     }
     
   init();

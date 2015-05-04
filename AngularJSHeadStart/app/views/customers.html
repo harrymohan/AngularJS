@@ -8,7 +8,7 @@ Filter Condition:<input type="text" ng-model="nameText.name"/>
 	<th>Ordered Placed On</th>
     <th>&nbsp;</th>
 </tr>
-<tr ng-repeat='person in cc.Customers|filter:nameText|orderBy:sortBy:reverse' bgcolor="#8E908F">
+<tr ng-repeat='person in cc.customers|filter:nameText|orderBy:sortBy:reverse' bgcolor="#8E908F">
 <td>
 {{person.name}}
 </td>
@@ -22,7 +22,7 @@ Filter Condition:<input type="text" ng-model="nameText.name"/>
     <a href="#/orders/{{person.id}}">View Orders</a>
     </td>
 </tr>
-<h3>Total Number of Customers: {{cc.total(cc.Customers)}}</h3>
+<h3>Total Number of Customers: {{cc.total()}}</h3>
 
 
 

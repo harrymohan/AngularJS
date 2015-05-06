@@ -1,10 +1,11 @@
 var express = require('express');
 var app = express();
 //var bodyparser = require('body-parser');
+/*
 app.configure(function(){
     app.use(express.static(__dirname,'/'));
 });
-
+*/
 
 //configure body parser to user bodyparser()
 //this will let us 
@@ -14,9 +15,8 @@ app.configure(function(){
 var port = process.env.PORT || 8080;
 
 
-
 //on routes that end in /bears
-//router.route('/customers')
+
 
 	//get all the bears
 	app.get('/customers',function(req,res){
@@ -24,7 +24,7 @@ var port = process.env.PORT || 8080;
 		});
 	
 
-	// get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
+	// get the beSSSar with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
     app.get('/customers/:id',function(req, res) {
         var customerId = parseInt(req.params.id);
         var len = customers.length;
@@ -37,6 +37,7 @@ var port = process.env.PORT || 8080;
                 break;
             }    
         }
+        res.json(data);
     });
 
  var customers = [{id:1,name:'Jason',age:'35',OrderedPlaced:'12/01/2012',

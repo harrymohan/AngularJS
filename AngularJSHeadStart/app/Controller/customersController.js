@@ -7,7 +7,16 @@ app.controller('customersController',function(customersFactory){
     vmc.customers = [];
     
     function init(){
-        vmc.customers = customersFactory.getCustomers();
+        customersFactory.getCustomers()
+            .success(function(customers){
+            alert(customers.length);
+            vmc.customers = customers;
+            
+        })
+            .error(function(data,status,headers,config){
+            //handle error
+            alert('error');
+        });
     }
 	
 	init();

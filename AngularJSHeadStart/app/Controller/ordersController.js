@@ -4,17 +4,16 @@ app.controller('ordersController',function($routeParams,customersFactory){
 	
   
     var vm = this; 
-    vm.customer = [];
+    vm.customer = null;
     
 	    function init(){
-       customersFactory.getCustomer(customerId)
+       // vm.customer = customersFactory.getCustomer(customerId);
+           customersFactory.getCustomer(customerId)
             .success(function(customer){
-            vm.customer = customer;
+           vm.customer = customer; 
         })
             .error(function(data,status,headers,config){
-            //handle error
-        });
-          
+        }); 
     }
     
   init();

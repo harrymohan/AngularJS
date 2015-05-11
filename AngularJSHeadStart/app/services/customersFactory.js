@@ -1,22 +1,18 @@
 
 
 
-var customerFactory = function($http){
+var customersFactory = function($http){
     
     var factory ={};
-    //this shall be asynchronous call
+    
     factory.getCustomers = function(){
-        
-        return $http.get('/customers');
-    }
-    var orders = {};
-    
-    
-    factory.getCustomer = function(customerId){
-        return $http.get('/customers/'+customerId);
-      
+       return $http.get('/customers');
     }
     
+    factory.getCustomer = function(customerID)
+    {
+        return $http.get('/customers/'+customerID);
+    }
     return factory;
 }
-angular.module('customer').factory('customersFactory',customerFactory);
+app.factory('customersFactory',customersFactory);

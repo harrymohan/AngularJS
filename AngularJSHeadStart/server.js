@@ -6,6 +6,8 @@ app.configure(function(){
     app.use(express.static(__dirname,'/'));
 });
 */
+//Express 4.0 way of handling static files
+app.use(express.static(__dirname + '/'));
 
 //configure body parser to user bodyparser()
 //this will let us 
@@ -38,6 +40,10 @@ var port = process.env.PORT || 8080;
             }    
         }
         res.json(data);
+    });
+    
+    app.get('/hello',function(req,res){
+        res.write('hello Server is up and running');
     });
 
  var customers = [{id:1,name:'Jason',age:'35',OrderedPlaced:'12/01/2012',
